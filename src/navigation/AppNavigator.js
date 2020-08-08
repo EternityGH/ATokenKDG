@@ -1,39 +1,46 @@
 import React from 'react';
+
+// ------------S--Import React Navigation---------------------
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import DashBoard from '../screen/DashBoard';
-import Vaynhanh from '../screen/Vaynhanh';
-import Tailoc from '../screen/Tailoc';
-import Cuatoi from '../screen/Cuatoi';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons'; 
-import { FontAwesome5 } from '@expo/vector-icons'; 
-import { FontAwesome } from '@expo/vector-icons'; 
+// ------------E--Import React Navigation---------------------
+
+// ------------S--Import Screen---------------------
+import WalletScreen, {
+  screenOptions as WalletScreenScreenOptions
+} from '../screens/WalletScreen';
+// ------------E--Import Screen---------------------
+
+
+// ------------S--Import External Library---------------------
+import Icon from 'react-native-vector-icons/Ionicons';
+// ------------E--Import Screen---------------------
 
 
 
 const AppNavigator = props => {
-    const DashBoardStackNavigator = createStackNavigator();
-    const BottomMenu = createBottomTabNavigator();
+    const WalletStack = createStackNavigator();
+    // const BottomMenu = createBottomTabNavigator();
 
-    const DashBoardStackNavigatorScreen = () => {
-      return (
-        <DashBoardStackNavigator.Navigator
-        screenOptions={{
-            headerShown: false
-          }}
-        >
-          <DashBoardStackNavigator.Screen
-            name="DashBoardScreen"
-            component={DashBoard}
-          />
-        </DashBoardStackNavigator.Navigator>
-      );
-    };
+    // const WalletStackScreen = () => {
+    //   return (
+    //     <WalletStack.Navigator
+    //     screenOptions={{
+    //         headerShown: false
+    //       }}
+    //     >
+    //       <WalletStack.Screen
+    //         name="WalletScreen"
+    //         component={WalletScreen}
+    //       />
+    //     </WalletStack.Navigator>
+    //   );
+    // };
 
   return (
     <NavigationContainer>
-        <BottomMenu.Navigator
+        {/* <BottomMenu.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
@@ -92,7 +99,15 @@ const AppNavigator = props => {
                     tabBarLabel: "Của tôi"
                   }}
             />                                  
-        </BottomMenu.Navigator>
+        </BottomMenu.Navigator> */}
+        <WalletStack.Navigator
+        >
+          <WalletStack.Screen
+            name="WalletScreen"
+            component={WalletScreen}
+            options={WalletScreenScreenOptions}
+          />
+        </WalletStack.Navigator>
     </NavigationContainer>
   );
 };
