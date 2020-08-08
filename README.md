@@ -1,2 +1,0 @@
-# ATokenKDG
-React Native 
