@@ -15,7 +15,7 @@ import WalletScreen, {
 
 // ------------S--Import External Library---------------------
 import Icon from 'react-native-vector-icons/Ionicons';
-// ------------E--Import Screen---------------------
+// ------------E--Import  External Library---------------------
 
 
 
